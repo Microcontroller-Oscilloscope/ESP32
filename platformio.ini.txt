@@ -37,11 +37,14 @@ build_flags =
 	; Configuration Flags
 	-D __NVM_BEGIN__ ; Calls begin function for NVM
 	;-D __NVM_BEGIN_SIZE__ ; Calls begin function with NVM size
+	;-D __NVM_BEGIN_RETURN__ ; Checks return parameter of nvm begin
 	;-D __NVM_COMMIT__ ; Calls commit function for NVM
+
+	; Sets constants for board
+	-include "${PROJECT_DIR}/src/board_consts.h"
 
 lib_deps =
 	https://github.com/Microcontroller-Oscilloscope/Core
-
 
 [env:esp32dev]
 build_type = release
@@ -51,9 +54,8 @@ build_flags =
 	${env.build_flags}
 
 	; Debug Flags
-	-D __ERROR_DEBUG__ ; Debug for general error statements
-	-D __NVM_DEBUG__ ; Debug for data related to NVM
-	;-D __TAG_DEBUG__ ; Enable to show custom errors
+	;-D __ERROR_DEBUG__ ; Debug for general error statements
+	;-D __NVM_DEBUG__ ; Debug for data related to NVM
 
 lib_deps =
 	${env.lib_deps}

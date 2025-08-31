@@ -6,7 +6,8 @@ Mark Descriptions:<br>
 &check;: Fully supported<br>
 &cross;: Not and won't be supported<br>
 -: Not yet developed<br>
-*: Developed but not tested
+*: Developed but not tested<br>
+!: Currently in development
 
 > ## [Specs](https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32d_esp32-wroom-32u_datasheet_en.pdf)<br>
 CPU Frequency: 240 MHz<br>

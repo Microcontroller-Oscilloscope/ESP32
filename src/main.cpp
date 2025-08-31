@@ -19,46 +19,9 @@
 #include "main.h"
 
 void setup() {
-
-	Serial.begin(BAUD_RATE);
-	delay(3000);
-
-	nvmInit(NVM_SIZE);
-}
-
-#define I8KEY (uint16_t)0b0110001001100001
-
-void keyToChar2(uint16_t key, char* keyStr) {
-	uint8_t key0 = key & LEAST_BYTE;
-	uint8_t key1 = (key & SECOND_LEAST_BYTE) >> 8;
-
-	keyStr[0] = key0;
-	keyStr[1] = key1;
-	keyStr[2] = '\0';
+	startProgram();
 }
 
 void loop() {
-
-	int8_t i8val = -128;
-	int8_t i8valr;
-
-	nvmWriteValue(I8KEY, i8val);
-	nvmGetValue(I8KEY, &i8valr);
-
-	if (i8valr != i8val) {
-		Serial.println("Not Equal?");
-	}
-
-	Serial.println(i8valr);
-
-	delay(5000);
-
-	i8val = 127;
-
-	nvmWriteValue(I8KEY, i8val);
-	nvmGetValue(I8KEY, &i8valr);
-
-	Serial.println(i8valr);
-
-	delay(5000);
+	runProgram();
 }

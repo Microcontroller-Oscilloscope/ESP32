@@ -16,7 +16,11 @@
 	along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+#ifndef MAIN_H
+#define MAIN_H
+
 #include <Arduino.h>
-#include <nvm/core_pref.h>
-#include <nvm/eeprom_addresses.h>
-#include "board_consts.h"
+#include <entry.h>
+#include <runner.h>
+
+#endif

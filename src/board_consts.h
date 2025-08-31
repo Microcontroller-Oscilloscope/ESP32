@@ -16,5 +16,19 @@
 	along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+#ifndef BOARD_CONSTS_H
+#define BOARD_CONSTS_H
+
+// baud rate to print to console
 #define BAUD_RATE 9600
+
+// size in bytes of NVM
 #define NVM_SIZE 4096
+
+// how long to wait for program to run in ms
+#define WAIT_RUN 0
+
+// whether to use the default nvm methods over custom nvm methods
+#define DEFAULT_NVM true
+
+#endif
