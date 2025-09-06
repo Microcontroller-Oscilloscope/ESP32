@@ -40,6 +40,9 @@ build_flags =
 	;-D __NVM_BEGIN_RETURN__ ; Checks return parameter of nvm begin
 	;-D __NVM_COMMIT__ ; Calls commit function for NVM
 
+	; Sets baud rate for board
+	-D BAUD_RATE=${this.monitor_speed}
+
 	; Sets constants for board
 	-include "${PROJECT_DIR}/src/board_consts.h"
 
