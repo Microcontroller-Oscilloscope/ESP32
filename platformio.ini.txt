@@ -34,17 +34,20 @@ framework = arduino
 monitor_speed = 9600
 
 build_flags =
-	; Configuration Flags
+	; NVM Configuration Flags
 	-D __NVM_BEGIN__ ; Calls begin function for NVM
-	;-D __NVM_BEGIN_SIZE__ ; Calls begin function with NVM size
-	;-D __NVM_BEGIN_RETURN__ ; Checks return parameter of nvm begin
-	;-D __NVM_COMMIT__ ; Calls commit function for NVM
+	-D __NVM_BEGIN_RETURN__ ; Checks return parameter of nvm begin
 
-	; Sets baud rate for board
-	-D BAUD_RATE=${this.monitor_speed}
+	; Version Flags
+	-D OSC_BOARD_MAJOR_VERSION=0
+	-D OSC_BOARD_MINOR_VERSION=2
+	-D OSC_BOARD_PATCH_VERSION=0
 
-	; Sets constants for board
-	-include "${PROJECT_DIR}/src/board_consts.h"
+	; Critical Flags
+	-D BAUD_RATE=${this.monitor_speed} ; Sets baud rate for board
+
+	; Extra Flags
+	;-D WAIT_RUN=0 ; How long to wait for program to run in ms
 
 lib_deps =
 	https://github.com/Microcontroller-Oscilloscope/Core
@@ -69,9 +72,6 @@ test_framework = unity
 
 build_flags =
 	${env.build_flags}
-
-	; Testing Flag
-	-D __TEST_CASES__
 
 lib_deps =
 	${env.lib_deps}

@@ -16,8 +16,6 @@
 	along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-#ifdef __TEST_CASES__
-
 #include <full_test.h>
 
 void setUp(void) {
@@ -40,5 +38,3 @@ void setup() {
 }
 
 void loop() {}
-
-#endif
