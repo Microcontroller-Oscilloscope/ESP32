@@ -1,5 +1,5 @@
 /*
-	main.cpp - entry point for code
+	main.c - entry point for code
 	Copyright (C) 2025 Camren Chraplak
 
 	This program is free software: you can redistribute it and/or modify
@@ -16,12 +16,12 @@
 	along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-#include "main.h"
+#include <stdio.h>
 
-void setup() {
+#include <entry.h>
+#include <runner.h>
+
+void app_main(void) {
 	startProgram();
-}
-
-void loop() {
 	runProgram();
 }

@@ -1,0 +1,40 @@
+# CMakeLsts.txt - cmake for project
+# Copyright (C) 2025 Camren Chraplak
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+# For more information about build system see
+# https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html
+# The following five lines of boilerplate have to be in your project's
+# CMakeLists in this exact order for cmake to work correctly
+cmake_minimum_required(VERSION 3.5)
+
+add_compile_definitions(ARDUINO_ESP32_DEV=1)
+add_compile_definitions(OSC_BOARD_MAJOR_VERSION=0)
+add_compile_definitions(OSC_BOARD_MINOR_VERSION=3)
+add_compile_definitions(OSC_BOARD_PATCH_VERSION=0)
+add_compile_definitions(DEFAULT_BAUD_RATE=9600)
+add_compile_definitions(__ENABLED_ENV__=1)
+add_compile_definitions(__ENABLED_RELEASE__=1)
+add_compile_definitions(__NVM_BEGIN__=1)
+add_compile_definitions(__NVM_BEGIN_RETURN__=1)
+add_compile_definitions(BAUD_RATE=115200)
+add_compile_definitions(__ENABLED_BASE__=1)
+add_compile_definitions(__ENABLED_DEV_RELEASE__=1)
+add_compile_definitions(__IGNORE_WARNINGS__=1)
+add_compile_definitions(ESP32=1)
+
+include_directories(${CMAKE_CURRENT_LIST_DIR}/components/Core/src)
+include($ENV{IDF_PATH}/tools/cmake/project.cmake)
+project(main)
