@@ -11,4 +11,5 @@ platformio.ini
 lib
 src/board_consts.h
 components/Core
+components/UnityTests
 dependencies.lock

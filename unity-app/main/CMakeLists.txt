@@ -1,4 +1,4 @@
-# CMakeLsts.txt - cmake for general Core files
+# CMakeLsts.txt - cmake for main unit test file
 # Copyright (C) 2025 Camren Chraplak
 
 # This program is free software: you can redistribute it and/or modify
@@ -14,8 +14,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-idf_component_register(
-    SRC_DIRS "Core/src" "Core/src/boards" "Core/src/boards/esp32" "Core/src/comm/hard_serial" "Core/src/nvm" "Core/src/osc_err" "Core/src/status"
-    "UnityTests/src" "UnityTests/src/nvm_tests" "UnityTests/src/timer_tests"
-    REQUIRES nvs_flash esp_timer unity
+idf_component_register(SRCS "test_app_main.c"
+                       INCLUDE_DIRS "."
 )
