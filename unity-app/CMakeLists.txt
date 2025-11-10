@@ -18,32 +18,26 @@
 # https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html
 
 cmake_minimum_required(VERSION 3.5)
-include($ENV{IDF_PATH}/tools/cmake/version.cmake)
 
-add_compile_definitions(ARDUINO_ESP32_DEV=1)
 add_compile_definitions(OSC_BOARD_MAJOR_VERSION=0)
 add_compile_definitions(OSC_BOARD_MINOR_VERSION=3)
 add_compile_definitions(OSC_BOARD_PATCH_VERSION=0)
-add_compile_definitions(DEFAULT_BAUD_RATE=9600)
-add_compile_definitions(__ENABLED_ENV__=1)
-add_compile_definitions(__ENABLED_TEST__=1)
-add_compile_definitions(__NVM_BEGIN__=1)
-add_compile_definitions(__NVM_BEGIN_RETURN__=1)
-add_compile_definitions(BAUD_RATE=115200)
-add_compile_definitions(__ENABLED_BASE__=1)
-add_compile_definitions(__ENABLED_DEV_TEST__=1)
-add_compile_definitions(__IGNORE_WARNINGS__=1)
 add_compile_definitions(ESP32=1)
-add_compile_definitions(__TEST_CASES__=1)
 
 include_directories(${CMAKE_CURRENT_LIST_DIR}/../components/Core/src)
+include_directories(${CMAKE_CURRENT_LIST_DIR}/../components/Core/include)
 include_directories(${CMAKE_CURRENT_LIST_DIR}/../components/UnityTests/src)
+include_directories(${CMAKE_CURRENT_LIST_DIR}/../components/lib_esp32/src)
 
 # Add newly added components to one of these lines:
 # 1. Add here if the component is compatible with IDF >= v4.3
 set(EXTRA_COMPONENT_DIRS "../components")
 
-set(TEST_COMPONENTS "")
-
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 project(unit_test)
+
+set(EXTRA_COMPONENT_DIRS 
+    Core 
+    UnityTests
+	lib_esp32
+)

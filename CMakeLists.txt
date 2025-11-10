@@ -19,22 +19,18 @@
 
 cmake_minimum_required(VERSION 3.5)
 
-add_compile_definitions(ARDUINO_ESP32_DEV=1)
 add_compile_definitions(OSC_BOARD_MAJOR_VERSION=0)
 add_compile_definitions(OSC_BOARD_MINOR_VERSION=3)
 add_compile_definitions(OSC_BOARD_PATCH_VERSION=0)
-add_compile_definitions(DEFAULT_BAUD_RATE=9600)
-add_compile_definitions(__ENABLED_ENV__=1)
-add_compile_definitions(__ENABLED_RELEASE__=1)
-add_compile_definitions(__NVM_BEGIN__=1)
-add_compile_definitions(__NVM_BEGIN_RETURN__=1)
-add_compile_definitions(BAUD_RATE=115200)
-add_compile_definitions(__ENABLED_BASE__=1)
-add_compile_definitions(__ENABLED_DEV_RELEASE__=1)
-add_compile_definitions(__IGNORE_WARNINGS__=1)
 add_compile_definitions(ESP32=1)
 
 include_directories(${CMAKE_CURRENT_LIST_DIR}/components/Core/src)
-include_directories(${CMAKE_CURRENT_LIST_DIR}/components/UnityTests/src)
+include_directories(${CMAKE_CURRENT_LIST_DIR}/components/Core/include)
+include_directories(${CMAKE_CURRENT_LIST_DIR}/components/lib_esp32/src)
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 project(main)
+
+set(EXTRA_COMPONENT_DIRS 
+    Core
+	lib_esp32
+)

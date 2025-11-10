@@ -10,4 +10,5 @@ lib
 src/board_consts.h
 components/Core
 components/UnityTests
+components/lib_esp32
 dependencies.lock

@@ -17,9 +17,7 @@
 */
 
 #include <stdio.h>
-
 #include <entry.h>
-#include <runner.h>
 
 void app_main(void) {
 	startProgram();
