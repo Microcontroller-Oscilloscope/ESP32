@@ -8,3 +8,5 @@ components/Core
 components/UnityTests
 components/lib_esp32
 dependencies.lock
+sdkconfig
+sdkconfig.old
